@@ -43,20 +43,20 @@ save(tdm3, file="tdm3.RData")
 save(tdm4, file="tdm4.RData")
 
 tdmToDf <- function(tdm)  {
-    cat("inspect\n")
+    #cat("inspect\n")
     df <- as.data.frame(inspect(tdm))
-    cat("made df\n")
+    #cat("made df\n")
     df$count <- rowSums(df)
-    cat("counted rows\n")
+    #cat("counted rows\n")
     # only interested in counts greater than 1
     df <- subset(df, count > 1)
-    cat("subset1\n")
+    #cat("subset1\n")
     df[c('input', 'prediction')] <- subset(str_match(row.names(df), "(.*) ([^ ]*)"),  select = c(2,3))
-    cat("subset2\n")
+    #cat("subset2\n")
     df <- subset(df, select=c('input', 'prediction', 'count'))
-    cat("subset3\n")
+    #cat("subset3\n")
     df <- df[order(df$input, -df$count),]
-    cat("sort\n")
+    #cat("sort\n")
     row.names(df) <- NULL
     df
 }

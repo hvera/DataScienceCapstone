@@ -1,7 +1,6 @@
 library(shiny)
 suppressWarnings(library(tm))
 
-options( java.parameters = "-Xmx6g" )
 suppressWarnings(library(RWeka))
 suppressWarnings(library(stringi))
 suppressWarnings(library(stringr))
