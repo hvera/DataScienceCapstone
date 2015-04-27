@@ -11,9 +11,12 @@ shinyUI(navbarPage("Coursera Capstone Project - Text prediction",
                                              c("Bigram" = "bingram",
                                                "Trigram" = "trigram",
                                                "Quadgram" = "quadgram",
-                                               "All (backoff strategy)" = "all")),
+                                               "All (backoff strategy)" = "all"),
+                                             selected="all"),
                                 br(),
                                 p("Select a strategy above and enter your text."),
+                                p("Please allow some time initially to load the data structures."),
+                                p("When the word 'Prediction:' appears below the text box, you're good to go!"),
                                 p("Thanks!")
                             ),
                             mainPanel(

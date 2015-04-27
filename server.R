@@ -12,6 +12,7 @@ source("Predict.R")
 #cat("..loaded.")
 
 predict <- function(text, level) {
+    text <- str_trim(text)
     if (is.null(text) || (str_length(text) == 0)) {
         # assume 'the' to start with
         'the'
@@ -29,10 +30,9 @@ predict <- function(text, level) {
 } 
 
 shinyServer(
-  function(input, output) {
-    selection <- reactive({input$level})
-          
-    output$textOutput <- renderText({predict(input$textInput, str(input$level))})
-  
-  }
+    
+    function(input, output) {
+        #selection <- reactive({input$level})
+        output$textOutput <- renderText({paste("Prediction: ", predict(input$textInput, str(input$level)))})
+   }
 )
